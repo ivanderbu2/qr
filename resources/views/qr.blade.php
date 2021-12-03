@@ -13,14 +13,15 @@
             QrScanner.WORKER_PATH = '/worker.js';
 
             const videoElem = document.getElementById('video');
-            const qrScanner = new QrScanner(videoElem, result => console.log('decoded qr code:', result));
+            const qrScanner = new QrScanner(videoElem, result => {
+                alert('decoded: ' + result);
+                qrScanner.stop();
+            });
 
             const scanLink = document.getElementById('scan');
             scanLink.addEventListener('click', function (event) {
                 event.preventDefault();
-                qrScanner.start().then(result => {
-                    alert(result);
-                }).catch(e => console.log(e));
+                qrScanner.start();
             });
         });
     </script>
