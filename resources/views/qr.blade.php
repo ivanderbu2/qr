@@ -18,7 +18,9 @@
             const scanLink = document.getElementById('scan');
             scanLink.addEventListener('click', function (event) {
                 event.preventDefault();
-                qrScanner.start();
+                qrScanner.start().then(result => {
+                    alert(result);
+                }).catch(e => console.log(e));
             });
         });
     </script>
