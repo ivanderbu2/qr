@@ -14,7 +14,7 @@
 
             const videoElem = document.getElementById('video');
             const qrScanner = new QrScanner(videoElem, result => {
-                alert('decoded: ' + result);
+                alert('Result: ' + result);
                 qrScanner.stop();
             });
 
@@ -25,10 +25,19 @@
             });
         });
     </script>
+    <style>
+        body {
+            text-align: center;
+        }
+        #video {
+            border: 1px solid #cecece;
+        }
+    </style>
 </head>
 <body>
+<h1>QR Code Scanner</h1>
 <video id="video"></video>
-
+<br>
 <a href="#" id="scan">Scan QR Code</a>
 </body>
 </html>
